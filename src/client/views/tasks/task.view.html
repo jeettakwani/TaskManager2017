@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TaskManagerApp">
+<head>
+
+    <title>Forms</title>
+    <script>
+        $(function () {
+            $(".sortable").sortable({
+                handle: '.handle',
+                cursor: 'move',
+                stop: function () {
+                    var order = $(this).sortable('toArray');
+                    angular.element('#sortableFields').scope().sortOrder(order);
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Forms</h1>
+
+            <div>
+                <ul class="nav nav-tabs nav-justified">
+                    <li><a href="#/tasks">Task List</a></li>
+                    <li class="active"><a href="#">Tasks</a></li>
+                </ul>
+
+            </div>
+            <div class="sortable" id="sortableFields">
+                <div id="{{task._id}}" class="form-horizontal" ng-repeat="task in tasks">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label class="label-control">{{task.label}}</label>
+                            </div>
+                            <div class="col-xs-offset-1 col-xs-5">
+                                <i ng-click="deleteField($index)" class="glyphicon glyphicon-remove"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-inline">
+                            <div class="col-xs-6" ng-switch="task.type">
+                                <input type="text" class="form-control" value="{{task.text}}" disabled="disabled">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-horizontal">
+                <div class="row"></div>
+                <hr>
+                <div class="form-group">
+
+                    <label for="AddNewField">Add New Task:</label>
+                    <div class="form-inline">
+
+                        <div class=" col-xs-6">
+                            <input type="text" id="AddNewField" ng-model="tasktxt" class="form-control">
+                            </input>
+                        </div>
+                        <div class="col-xs-offset-1 col-xs-5">
+                            <i ng-click="addField(tasktxt)" class="glyphicon glyphicon-plus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

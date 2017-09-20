@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TaskManagerApp">
+<head>
+</head>
+
+<body>
+
+<div class="container-fluid" ng-controller="LoginController">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+            <h1>Loginass</h1>
+            <form class="form-horizontal">
+
+                <div class="form-group">
+                    <label for="userName" class="label-control col-sm-3 col-md-4 text-right">Username</label>
+                    <div class="col-sm-6 col-md-6">
+                        <input ng-model="username" type="text" class="form-control" id="userName" placeholder="Username">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword" class="col-sm-3 col-md-4 text-right">Password</label>
+                    <div class="col-sm-6 col-md-6">
+                        <input ng-model="password" type="password" class="form-control col-sm-6 col-md-6" id="inputPassword" placeholder="password">
+                    </div>
+                </div>
+                <div>
+                    <div class="col-sm-3 col-md-4"></div>
+                    <button ng-click="login()" class="btn btn-default  col-sm-6  col-md-6">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

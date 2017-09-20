@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TaskManagerApp">
+<head>
+
+    <title>Task List</title>
+
+</head>
+
+<body>
+
+
+<div class="container-fluid" ng-controller="TaskListController">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Forms</h1>
+
+            <div>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="#/tasks">Task List</a></li>
+                    <li><a>Task Detail</a></li>
+                </ul>
+            </div>
+            <div>
+                <table class="table table-bordered table-striped table-responsive">
+                    <thead>
+                    <tr>
+                        <td><i class="glyphicon glyphicon-triangle-bottom"></i> Form Name</td>
+                        <td>Action</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <td><input ng-model="taskName" type="text" placeholder="name"></td>
+                        <td><i ng-click="addTask()" class="glyphicon glyphicon-plus"></i></td>
+
+                    </tr>
+                    <tr ng-repeat="task in tasks">
+                        <td><a href="#/tasks/{{task._id}}/tasks">{{task.title}}</a></td>
+                        <td><i ng-click="deleteTask($index)" class="glyphicon glyphicon-remove"></i></td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
